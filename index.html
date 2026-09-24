@@ -267,8 +267,6 @@ em{font-style:italic;font-family:var(--display);font-variation-settings:"opsz" 1
 .post.featured .cover{aspect-ratio:16/10}
 .post.featured h3{font-size:var(--t-2xl)}
 .post-stack{display:grid;gap:var(--s-5)}
-.post-stack .post{display:grid;grid-template-columns:150px 1fr}
-.post-stack .cover{aspect-ratio:auto;height:100%}
 .post-stack .body{padding:var(--s-5)}
 .post-stack h3{font-size:1.25rem}
 .readmore{display:inline-flex;align-items:center;gap:.5rem;margin-top:var(--s-4);font-weight:600;font-size:var(--t-sm);color:var(--emerald)}
@@ -371,6 +369,13 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
 .resource-list a:hover{border-color:var(--emerald);padding-left:var(--s-6)}
 .resource-list a span{font-size:var(--t-xs);color:var(--ink-2);font-weight:400}
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s-5)}
+.blog-feature{display:grid;grid-template-columns:5fr 7fr;margin-bottom:var(--s-7)}
+.post.blog-feature .cover{aspect-ratio:auto;min-height:280px;height:100%}
+.blog-feature .body{padding:var(--s-7);align-self:center}
+.blog-filters{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--s-5)}
+.blog-filters button{padding:.5rem 1rem;border-radius:999px;border:1px solid var(--line);background:var(--paper);font-weight:600;font-size:var(--t-sm);color:var(--forest);transition:all .2s var(--ease)}
+.blog-filters button:hover{border-color:var(--emerald)}
+.blog-filters button[aria-pressed="true"]{background:var(--forest);border-color:var(--forest);color:var(--bone)}
 
 
 /* ─────────────────────────────────────────────────────────
@@ -495,6 +500,9 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
   .posts{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
   .subjects,.blog-grid{grid-template-columns:1fr 1fr}
+  .blog-feature{grid-template-columns:1fr}
+  .post.blog-feature .cover{min-height:180px}
+  .blog-feature .body{padding:var(--s-5)}
 }
 @media (max-width:720px){
   .nav-links,.nav .btn-primary{display:none}
@@ -506,8 +514,6 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
   .trust .wrap{grid-template-columns:1fr 1fr}
   .roadmap{padding:var(--s-5)}
   .form{padding:var(--s-5)}
-  .post-stack .post{grid-template-columns:1fr}
-  .post-stack .cover{aspect-ratio:16/9}
   .foot-grid{grid-template-columns:1fr}
 }
 </style>
@@ -537,7 +543,7 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
           <ul class="menu">
             <li><a href="#/subjects">All subjects <small>Search past papers</small></a></li>
             <li><a href="#/boundaries">Grade boundaries <small>By board</small></a></li>
-            <li><a href="#/blog">Articles <small>Study guides</small></a></li>
+            <li><a href="#/blog">Blog <small>Study guides</small></a></li>
           </ul>
         </li>
         <li class="has-menu">
@@ -549,6 +555,7 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
             <li><a href="#/faq">FAQ</a></li>
           </ul>
         </li>
+        <li><a href="#/blog">Blog</a></li>
         <li><a href="#/about">About</a></li>
         <li class="has-menu">
           <a href="#/student" aria-haspopup="true">Sign in <svg width="10" height="10" viewBox="0 0 10 10" aria-hidden="true"><path d="M2 4l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a>
@@ -578,7 +585,7 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
     <a class="sub" href="#/boundaries">Grade boundaries</a>
     <a href="#/qna">Q&amp;A</a>
     <a href="#/tutors">Tutor directory</a>
-    <a href="#/blog">Articles</a>
+    <a href="#/blog">Blog</a>
     <a href="#/faq">FAQ</a>
     <a href="#/review">Share a testimonial</a>
     <a href="#/student">Student sign in</a>
@@ -810,11 +817,10 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
   <div class="wrap">
     <div class="section-head">
       <div class="reveal"><p class="eyebrow">Resources</p><h2>Read before you revise.</h2></div>
-      <div class="reveal" data-delay="1"><a class="btn btn-outline" href="#/blog">All articles</a></div>
+      <div class="reveal" data-delay="1"><a class="btn btn-outline" href="#/blog">Visit the blog</a></div>
     </div>
     <div class="posts">
-      <a class="post featured reveal" href="https://mytutortree.com/a-level-exam-success-planning-your-path-to-university/">
-        <div class="cover"><img src="assets/img-a1b70797e1.webp" alt="" loading="lazy"></div>
+      <a class="post featured reveal" href="#/article/a-level-exam-success-planning-your-path-to-university">
         <div class="body">
           <div class="meta"><span class="tag">A Level</span><span>Featured</span><span>·</span><span>5 min read</span></div>
           <h3>A Level exam success: planning your path to university</h3>
@@ -823,12 +829,10 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
         </div>
       </a>
       <div class="post-stack">
-        <a class="post reveal" data-delay="1" href="https://mytutortree.com/study-tips-every-as-level-student-should-know/">
-          <div class="cover"><img src="assets/img-38c26f64f6.webp" alt="" loading="lazy"></div>
+        <a class="post reveal" data-delay="1" href="#/article/study-tips-every-as-level-student-should-know">
           <div class="body"><div class="meta"><span class="tag">AS Level</span><span>4 min read</span></div><h3>Study tips every AS Level student should know</h3><p>The shift from IGCSE to AS is a shift in thinking, not just content.</p></div>
         </a>
-        <a class="post reveal" data-delay="2" href="https://mytutortree.com/how-to-prepare-effectively-for-igcse-exams/">
-          <div class="cover"><img src="assets/img-a7fad350e6.webp" alt="" loading="lazy"></div>
+        <a class="post reveal" data-delay="2" href="#/article/how-to-prepare-effectively-for-igcse-exams">
           <div class="body"><div class="meta"><span class="tag">IGCSE</span><span>4 min read</span></div><h3>How to prepare effectively for IGCSE exams</h3><p>A calm, structured approach to a syllabus that can feel overwhelming.</p></div>
         </a>
       </div>
@@ -856,7 +860,7 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
       <h2>Ask a question. Get a <em>clear</em> answer.</h2>
       <p class="lede">Want a peer tutor, or unsure which level, board or subject applies to you? Send the details and we will match you with a tutor or point you to the right pathway.</p>
       <ul class="contact-lines">
-        <li><a href="mailto:info@mytutortree.com"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16v10H2zM2 5l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>info@mytutortree.com</a></li>
+        <li><a href="mailto:info@thetutortrees.com"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M2 5h16v10H2zM2 5l8 6 8-6" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>info@thetutortrees.com</a></li>
         <li><a href="tel:+97338990727"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 3h3l2 5-2 1a10 10 0 005 5l1-2 5 2v3a2 2 0 01-2 2A14 14 0 012 5a2 2 0 012-2z" fill="none" stroke="currentColor" stroke-width="1.4"/></svg>+973 3899 0727</a></li>
       </ul>
     </div>
@@ -916,9 +920,9 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
         </div>
       </div>
       <div><h4>Pathways</h4><ul><li><a href="#/igcse">IGCSE</a></li><li><a href="#/gcse">GCSE</a></li><li><a href="#/a-level">AS/A Level</a></li><li><a href="#/edexcel">Pearson Edexcel</a></li></ul></div>
-      <div><h4>Community</h4><ul><li><a href="#/qna">Q&amp;A</a></li><li><a href="#/tutors">Tutor directory</a></li><li><a href="#/blog">Articles</a></li><li><a href="#/faq">FAQ</a></li><li><a href="#/review">Share a testimonial</a></li></ul></div>
+      <div><h4>Community</h4><ul><li><a href="#/qna">Q&amp;A</a></li><li><a href="#/tutors">Tutor directory</a></li><li><a href="#/blog">Blog</a></li><li><a href="#/faq">FAQ</a></li><li><a href="#/review">Share a testimonial</a></li></ul></div>
       <div><h4>Study tools</h4><ul><li><a href="#/subjects">Subjects &amp; past papers</a></li><li><a href="#/boundaries">Grade boundaries</a></li><li><a href="#/student">Student sign in</a></li><li><a href="#/tutor">Tutor sign in</a></li><li><a href="#/admin">Admin</a></li></ul></div>
-      <div><h4>The Tutor Trees</h4><ul><li><a href="#/about">About</a></li><li><a href="#/contact">Contact</a></li><li><a href="mailto:info@mytutortree.com">info@mytutortree.com</a></li><li><a href="tel:+97338990727">+973 3899 0727</a></li></ul></div>
+      <div><h4>The Tutor Trees</h4><ul><li><a href="#/about">About</a></li><li><a href="#/contact">Contact</a></li><li><a href="mailto:info@thetutortrees.com">info@thetutortrees.com</a></li><li><a href="tel:+97338990727">+973 3899 0727</a></li></ul></div>
       <div>
         <h4>Exam updates by email</h4>
         <p>Timetable releases, syllabus changes and new resources. A few emails a term, nothing more.</p>
@@ -995,15 +999,10 @@ const FAQ = [
     ['Is The Tutor Trees a tutoring service?','Yes, a peer-to-peer one. Students who recently sat IGCSE, GCSE and AS/A Level exams tutor the students preparing for them now. The exam information, timetables and resources on the site support that tutoring. Use the tutor directory to send a booking request.'],
     ['Who are the tutors?','Students. Every tutor on The Tutor Trees has recently taken the exams they tutor, so they know the current syllabus, the paper format and the parts that actually confuse people, because they were just there themselves.'],
     ['Can parents use the site?','Yes. The pathway pages are written so that parents can understand what each qualification is, how it is graded and what it leads to.'],
-    ['How do I ask a question?','Use the contact form, email info@mytutortree.com or call +973 3899 0727.']
+    ['How do I ask a question?','Use the contact form, email info@thetutortrees.com or call +973 3899 0727.']
   ]}
 ];
 
-const POSTS = [
-  {t:'A Level exam success: planning your path to university',c:'A Level',r:'5 min read',img:'https://mytutortree.com/wp-content/uploads/2025/12/IGCSE.webp',url:'https://mytutortree.com/a-level-exam-success-planning-your-path-to-university/',d:'A Level results shape university options. Success at this stage depends on planning early, choosing subjects with intent and revising against the actual specification.'},
-  {t:'Study tips every AS Level student should know',c:'AS Level',r:'4 min read',img:'https://mytutortree.com/wp-content/uploads/2025/12/AS-Level.webp',url:'https://mytutortree.com/study-tips-every-as-level-student-should-know/',d:'The shift from IGCSE to AS is a shift in thinking, not just content. What to change in the first term.'},
-  {t:'How to prepare effectively for IGCSE exams',c:'IGCSE',r:'4 min read',img:'https://mytutortree.com/wp-content/uploads/2025/12/AS_new-1.webp',url:'https://mytutortree.com/how-to-prepare-effectively-for-igcse-exams/',d:'A calm, structured approach to a syllabus that can feel overwhelming when you first open it.'}
-];
 
 
 /* Official sources, verified September 2026 */
@@ -1190,7 +1189,7 @@ function pathwayPage(p){
           ${officialList(OFFICIAL[p.key].resources)}
           <h3 style="margin:var(--s-6) 0 var(--s-4);color:var(--forest)">On The Tutor Trees</h3>
           <ul class="resource-list">
-            <li><a href="#/blog">Study guides and revision planning <span>Articles</span></a></li>
+            <li><a href="#/blog">Study guides and revision planning <span>Blog</span></a></li>
             <li><a href="#/faq">Frequently asked questions <span>Levels, boards, dates</span></a></li>
             <li><a href="#/contact">Not sure which document applies to you? <span>Ask us</span></a></li>
           </ul>
@@ -1205,13 +1204,17 @@ function pathwayPage(p){
   </section>`;
 }
 function blogPage(){
+  const feat=ARTICLES.find(a=>a.featured)||ARTICLES[0];
+  const cats=['All',...new Set(ARTICLES.map(a=>a.c))];
   return `
-  <section class="page-hero"><div class="wrap"><div><div class="crumbs"><a href="#/">Home</a> › <span>Resources</span></div><p class="eyebrow">Resources</p><h1>Articles and study guides</h1><p class="lede">Practical, exam-board-specific guidance for IGCSE, GCSE and AS/A Level students. Read before you revise.</p></div></div></section>
-  <section class="section"><div class="wrap"><div class="blog-grid">${POSTS.map(p=>`
-    <a class="post" href="${p.url}"><div class="cover"><img src="${p.img}" alt="" loading="lazy"></div><div class="body"><div class="meta"><span class="tag">${p.c}</span><span>${p.r}</span></div><h3>${p.t}</h3><p>${p.d}</p><span class="readmore">Read the article →</span></div></a>`).join('')}
-  </div>
-  <h3 style="margin:var(--s-8) 0 var(--s-4);color:var(--forest);font-size:var(--t-xl)">More guides</h3>
-  <div class="blog-grid">${ARTICLES.map(articleCard).join('')}</div>
+  <section class="page-hero"><div class="wrap"><div><div class="crumbs"><a href="#/">Home</a> › <span>Blog</span></div><p class="eyebrow">The Tutor Trees blog</p><h1>Read before you revise</h1><p class="lede">Practical, exam-board-specific guidance for IGCSE, GCSE and AS/A Level students, written by students and tutors who have just been through these exams.</p></div></div></section>
+  <section class="section"><div class="wrap">
+    <a class="post featured blog-feature" href="#/article/${feat.slug}">
+      <div class="cover" style="display:grid;place-items:center;background:var(--forest);color:var(--bone)"><span style="font-family:var(--display);font-size:5rem;font-variation-settings:'opsz' 144">${feat.mono}</span></div>
+      <div class="body"><div class="meta"><span class="tag">${feat.c}</span><span>Featured</span><span>·</span><span>${feat.r}</span></div><h3>${feat.t}</h3><p>${feat.d}</p><span class="readmore">Read the article →</span></div>
+    </a>
+    <div class="blog-filters" role="toolbar" aria-label="Filter articles by topic">${cats.map((c,i)=>`<button type="button" data-blog-filter="${c}" aria-pressed="${i===0}">${c}</button>`).join('')}</div>
+    <div class="blog-grid" data-blog-grid>${ARTICLES.filter(a=>a!==feat).map(a=>articleCard(a).replace('<a class="post"',`<a class="post" data-cat="${a.c}"`)).join('')}</div>
   </div></section>`;
 }
 function faqPage(){
@@ -1240,7 +1243,7 @@ function aboutPage(){
 }
 function contactPage(){
   return `
-  <section class="page-hero"><div class="wrap"><div><div class="crumbs"><a href="#/">Home</a> › <span>Contact</span></div><p class="eyebrow">Contact</p><h1>Ask a question</h1><p class="lede">Email <a href="mailto:info@mytutortree.com" style="color:var(--emerald);font-weight:600">info@mytutortree.com</a>, call <a href="tel:+97338990727" style="color:var(--emerald);font-weight:600">+973 3899 0727</a>, or use the form on the home page.</p><a class="btn btn-primary" href="#contact" style="margin-top:var(--s-4)">Open the contact form ${arrow}</a></div></div></section>`;
+  <section class="page-hero"><div class="wrap"><div><div class="crumbs"><a href="#/">Home</a> › <span>Contact</span></div><p class="eyebrow">Contact</p><h1>Ask a question</h1><p class="lede">Email <a href="mailto:info@thetutortrees.com" style="color:var(--emerald);font-weight:600">info@thetutortrees.com</a>, call <a href="tel:+97338990727" style="color:var(--emerald);font-weight:600">+973 3899 0727</a>, or use the form on the home page.</p><a class="btn btn-primary" href="#contact" style="margin-top:var(--s-4)">Open the contact form ${arrow}</a></div></div></section>`;
 }
 
 
@@ -1457,6 +1460,27 @@ const BOUNDARIES=[];
 
 /* Articles: practical, exam-board-specific guidance */
 const ARTICLES=[
+ {slug:'a-level-exam-success-planning-your-path-to-university',t:'A Level exam success: planning your path to university',c:'A Level',r:'5 min read',mono:'AL',bg:'forest',featured:true,
+  d:'A Level results shape university options. Success at this stage depends on planning early, choosing subjects with intent and revising against the actual specification.',
+  body:`<div class="block"><p>A Level exams are one of the most important milestones in a student's education. The grades shape which universities and courses are open to you, and through them, the early direction of a career. Success at this stage is rarely about last-minute effort. It comes from clear planning and consistent work across both years.</p></div>
+  <div class="block"><h2>Start with where you want to go</h2><p>Before planning revision, set academic goals that connect to what comes next. Look at the courses you are interested in and note the grades and subjects they ask for. Once you know the target, every revision decision gets easier: which topics deserve the most time, which subject needs a rescue plan, and which grades are genuinely non-negotiable.</p></div>
+  <div class="block"><h2>Revise for understanding, not recall</h2><p>A Level questions reward analysis and critical thinking far more than memorised definitions. The most reliable approach combines three sources: your textbook for depth, your own revision notes for structure, and past papers for the way ideas are actually examined. Work through a topic in the textbook, condense it into notes in your own words, then test it against real exam questions and the official mark scheme.</p></div>
+  <div class="block"><h2>Find the gaps early</h2><p>Regular self-assessment is what separates steady progress from a surprise in the exam hall. Short timed quizzes, a past-paper section each week and honest marking against the scheme show you exactly where your understanding is thin. Fix those gaps as you find them, while there is still time, rather than discovering them in the final month.</p></div>
+  <div class="block"><h2>You do not have to do it alone</h2><p>The Tutor Trees supports A Level students with syllabus guidance, the official timetables and past papers for each board, and peer tutors who sat these exams recently and remember exactly what made each topic click. With proper planning, discipline and the right support, you can walk into your A Level exams with confidence, and one step closer to the university and career you are aiming for.</p></div>`},
+ {slug:'study-tips-every-as-level-student-should-know',t:'Study tips every AS Level student should know',c:'AS Level',r:'4 min read',mono:'AS',bg:'moss',
+  d:'The shift from IGCSE to AS is a shift in thinking, not just content. Three habits that make the difference in the first year.',
+  body:`<div class="block"><p>AS Level marks a real change from the foundations built at IGCSE and GCSE. The content is deeper, the questions ask you to apply ideas rather than repeat them, and you are managing several demanding subjects at once. Students who adjust their study habits early find the year far more manageable. Three habits matter most.</p></div>
+  <div class="block"><h2>1. Learn actively, not by rote</h2><p>Reading notes over and over feels productive but does little at this level. Focus instead on understanding concepts, practising questions and applying what you know to unfamiliar situations. After learning a topic, close the book and explain it in your own words, then attempt exam questions on it. If you cannot explain it or apply it, you have not learned it yet.</p></div>
+  <div class="block"><h2>2. Manage your time across subjects</h2><p>With several subjects running in parallel, it is easy to spend all your time on the one you enjoy and neglect the one you find hard. Set clear weekly goals for every subject, and give extra time to the most challenging material rather than the most comfortable. Regular, spaced revision throughout the year strengthens memory and makes the exam season far less stressful than cramming ever could.</p></div>
+  <div class="block"><h2>3. Build exam technique deliberately</h2><p>Knowing the content is only half the job. Practise past papers under timed conditions so the pace of the real exam feels familiar, and read the examiner reports and mark schemes closely. They show exactly how marks are awarded, which command words need which kind of answer, and the common mistakes that cost other students marks last year.</p></div>
+  <div class="block"><h2>Study smarter, together</h2><p>The Tutor Trees gives AS Level students structured resources for each subject and board, plus peer tutors who made the same jump from IGCSE to AS only a year or two ago. They know which habits worked, and which ones did not.</p></div>`},
+ {slug:'how-to-prepare-effectively-for-igcse-exams',t:'How to prepare effectively for IGCSE exams',c:'IGCSE',r:'4 min read',mono:'IG',bg:'amber',
+  d:'A calm, structured approach to a syllabus that can feel overwhelming when you first open it.',
+  body:`<div class="block"><p>Preparing for IGCSE exams can feel overwhelming at first. There are many subjects, a lot of content and a fixed exam timetable. With the right approach, though, you can study with confidence and achieve strong results. It starts with a few simple foundations.</p></div>
+  <div class="block"><h2>Understand the syllabus first</h2><p>Before revising anything, get the official syllabus for each subject and read what it actually covers. Knowing exactly which topics can be examined lets you focus your effort on what truly matters and stops you worrying about material that will never appear. The subject pages on The Tutor Trees link to the official syllabus documents for each board.</p></div>
+  <div class="block"><h2>Build a realistic timetable</h2><p>Break each subject into smaller topics and give each one regular revision slots across the weeks before your exams. Small, consistent sessions work far better than cramming at the last minute, and a timetable you can actually keep is worth more than an ambitious one you abandon in the first week. The printable revision planner on each subject page is a good place to start.</p></div>
+  <div class="block"><h2>Practise with past papers</h2><p>Past papers show you the exam format, the style of questions and how much time each part really takes. Using them throughout your preparation, not just at the end, improves both your speed and your accuracy. Always mark your answers against the official mark scheme, and note the questions you got wrong so you can return to those topics.</p></div>
+  <div class="block"><h2>Balance study with rest</h2><p>At The Tutor Trees we encourage students to balance study with rest. Short breaks, staying organised and keeping a positive mindset make revision more effective and far less tiring. With consistent effort and the right guidance, from resources or from a peer tutor who sat the same papers last year, success in your IGCSE exams is well within reach.</p></div>`},
  {slug:'read-a-mark-scheme-like-an-examiner',t:'How to read a mark scheme like an examiner',c:'Revision',r:'4 min read',mono:'MS',bg:'moss',
   d:'The mark scheme is not an answer key; it is a scoring rubric. Reading it properly doubles the value of every past paper.',
   body:`<div class="block"><p>Most students use mark schemes to check whether they were right. Examiners use them to decide where marks live: which words are creditable, which steps are required, and which parts of a beautiful answer earn nothing. Reading a scheme the second way changes how you write.</p></div>
@@ -1496,7 +1520,7 @@ function articlePage(slug){
   const a=ARTICLES.find(x=>x.slug===slug); if(!a) return blogPage();
   return pageHero(a.t,a.c+' · '+a.r,a.t,a.d)+
   `<section class="section"><div class="wrap" style="max-width:760px">${a.body}
-  <p><a class="btn btn-outline" href="#/blog">All articles</a></p>
+  <p><a class="btn btn-outline" href="#/blog">Back to the blog</a></p>
   <div style="margin-top:var(--s-6)">${newsletterCard()}</div></div></section>`;
 }
 
@@ -1608,7 +1632,7 @@ function dashShell(title,role,tabs,panels){
 }
 function adminDash(){
   const pathRows=Object.values(PATHWAYS).map(pw=>`<tr><td><strong>${pw.name}</strong></td><td>${pw.ages}</td><td>${pw.eyebrow}</td><td><button class="btn-sm" disabled title="Connect a backend to enable">Edit</button></td></tr>`).join('');
-  const postRows=POSTS.map(po=>`<tr><td><strong>${po.t}</strong></td><td><span class="pill">${po.c}</span></td><td>${po.r}</td><td><button class="btn-sm" disabled title="Connect a backend to enable">Edit</button></td></tr>`).join('');
+  const postRows=ARTICLES.map(po=>`<tr><td><strong>${po.t}</strong></td><td><span class="pill">${po.c}</span></td><td>${po.r}</td><td><button class="btn-sm" disabled title="Connect a backend to enable">Edit</button></td></tr>`).join('');
   const faqRows=FAQ.map(g=>`<tr><td><strong>${g.group}</strong></td><td>${g.items.length} questions</td><td><button class="btn-sm" disabled title="Connect a backend to enable">Edit</button></td></tr>`).join('');
   const linkRows=Object.entries(OFFICIAL).flatMap(([k,v])=>[...v.syllabus,...v.timetable,...v.resources].map(l=>`<tr><td>${l[0]}</td><td><span class="pill">${k}</span></td><td style="word-break:break-all;font-size:var(--t-xs);color:var(--ink-2)">${l[1]}</td></tr>`)).join('');
   const tutorRows=TUTORS.map(t=>`<tr><td><strong>${t.n}</strong></td><td>${t.subj}</td><td>${t.lv}</td><td><button class="btn-sm" disabled title="Connect a backend to enable">Edit</button></td></tr>`).join('');
@@ -1934,7 +1958,7 @@ function showPage(key){
   });
   if(key==='dyn'){
     const path=location.hash.slice(2).split('/')[0];
-    const map={subjects:'#/subjects',subject:'#/subjects',boundaries:'#/subjects',planner:'#/subjects',landing:'#/subjects',qna:'#/qna',tutors:'#/qna',review:'#/qna',student:'#/student',tutor:'#/student',admin:'#/student'};
+    const map={article:'#/blog',subjects:'#/subjects',subject:'#/subjects',boundaries:'#/subjects',planner:'#/subjects',landing:'#/subjects',qna:'#/qna',tutors:'#/qna',review:'#/qna',student:'#/student',tutor:'#/student',admin:'#/student'};
     const h=map[path]; if(h){ const a=document.querySelector('.nav-links a[href="'+h+'"]'); if(a) a.setAttribute('aria-current','page'); }
   }
   document.title = key==='home' ? 'The Tutor Trees · Peer-to-peer tutoring for IGCSE, GCSE and AS/A Level' : (PATHWAYS[key]?.name || key[0].toUpperCase()+key.slice(1)) + ' · The Tutor Trees';
@@ -1946,6 +1970,12 @@ function scrollToId(id){
   });
 }
 window.addEventListener('hashchange',route);
+document.addEventListener('click',e=>{
+  const b=e.target.closest('[data-blog-filter]'); if(!b) return;
+  const bar=b.parentElement, cat=b.dataset.blogFilter;
+  bar.querySelectorAll('button').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  document.querySelectorAll('[data-blog-grid] .post').forEach(card=>{ card.style.display=(cat==='All'||card.dataset.cat===cat)?'':'none'; });
+});
 
 /* ─────────────────────────────────────────────────────────
    NAV BEHAVIOUR
