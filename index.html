@@ -466,6 +466,30 @@ footer .news input:focus{border-color:var(--amber);box-shadow:0 0 0 4px rgba(227
   a{text-decoration:none;color:#000}
 }
 
+
+.research{background:var(--paper);border-block:1px solid var(--line)}
+.research-card{border-left:3px solid var(--amber);padding:var(--s-7)}
+.research-meta{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:var(--s-4)}
+.research-title{font-size:var(--t-xl);color:var(--forest);line-height:1.15;margin-bottom:var(--s-4);max-width:28ch}
+.research-cite{font-size:var(--t-sm);color:var(--ink-2);max-width:70ch;margin-bottom:var(--s-5)}
+.research-actions{display:flex;gap:var(--s-4);flex-wrap:wrap;align-items:center}
+.research-sub{font-family:var(--body);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--emerald);font-weight:600;margin:var(--s-8) 0 var(--s-4)}
+.research-facts{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-radius:var(--radius);background:var(--bone)}
+.research-facts li{padding:var(--s-5);border-right:1px solid var(--line)}
+.research-facts li:last-child{border-right:0}
+.research-facts strong{display:block;font-family:var(--display);font-size:1.7rem;font-weight:400;color:var(--forest);line-height:1.1}
+.research-facts span{font-size:var(--t-xs);color:var(--ink-2)}
+.research-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s-5)}
+.finding{background:var(--bone);border:1px solid var(--line);border-radius:var(--radius);padding:var(--s-6)}
+.finding-n{font-family:var(--display);font-size:1.6rem;color:var(--amber-2);display:block;margin-bottom:var(--s-3)}
+.finding h4{font-family:var(--display);font-weight:400;font-size:1.25rem;color:var(--forest);line-height:1.2;margin:0 0 var(--s-3)}
+.finding p{font-size:var(--t-sm);color:var(--ink-2);margin:0}
+.research-implication{margin-top:var(--s-7);padding:var(--s-6);border-radius:var(--radius);background:var(--moss)}
+.research-implication p{color:var(--forest);max-width:75ch}
+.research-note{font-size:var(--t-xs);color:var(--ink-2)!important;margin:0}
+@media (max-width:1024px){.research-facts{grid-template-columns:1fr 1fr}.research-facts li:nth-child(2){border-right:0}.research-facts li:nth-child(-n+2){border-bottom:1px solid var(--line)}}
+@media (max-width:720px){.research-grid{grid-template-columns:1fr}.research-card{padding:var(--s-5)}}
+
 /* ─────────────────────────────────────────────────────────
    REVEAL
    ───────────────────────────────────────────────────────── */
@@ -1229,11 +1253,50 @@ function aboutPage(){
       <div class="tutor-card" style="margin:0"><div class="avatar">AA</div><div>
         <h3 style="margin-bottom:.2rem;color:var(--forest)">Arhaan Anand</h3>
         <div style="font-size:var(--t-xs);color:var(--ink-2);margin-bottom:.5rem">Founder, The Tutor Trees</div>
-        <p style="font-size:var(--t-sm);color:var(--ink-2);margin:0">The Tutor Trees was built by a student, for students. Arhaan is a Year 13 A Level student at St Christopher's School in Bahrain, studying under the Cambridge curriculum and graduating in 2027. He holds an A in A Level Mathematics and an A at AS Geography, co-founded his school's Investment Club, and was a head boy finalist. Heading for business and management at university, with a career in finance and quantitative analysis in his sights, he built The Tutor Trees after living the problem it solves: exam information scattered everywhere except where a student needs it.</p>
+        <p style="font-size:var(--t-sm);color:var(--ink-2);margin:0">The Tutor Trees was built by a student, for students. Arhaan is a Year 13 A Level student at St Christopher's School in Bahrain, studying under the Cambridge curriculum and graduating in 2027. He holds an A in A Level Mathematics and an A at AS Geography, co-founded his school's Investment Club, and was a head boy finalist. Heading for business and management at university, with a career in finance and quantitative analysis in his sights, he built The Tutor Trees after living the problem it solves: exam information scattered everywhere except where a student needs it. He is co-author, with Dr. Karan Gupta, of a <a href="#research" style="color:var(--emerald);font-weight:600">peer-reviewed study on online tutoring</a> published in the Journal of Education and Learning.</p>
       </div>
       <p style="grid-column:1/-1;margin:var(--s-4) 0 0;padding-top:var(--s-4);border-top:1px solid var(--line);font-size:var(--t-xs);letter-spacing:.14em;text-transform:uppercase;color:var(--emerald);font-weight:600">Who is behind The Tutor Trees</p>
       </div>
     </div></div></section>
+  <section class="section research" id="research"><div class="wrap">
+    <div class="section-head" style="margin-bottom:var(--s-6)">
+      <div><p class="eyebrow">Our research</p><h2>What makes a tutoring match work?</h2></div>
+      <p class="lede" style="margin:0">The Tutor Trees does not just run peer tutoring; we study it. Our founder co-authored a peer-reviewed study using data from IGCSE tutoring relationships to ask what actually makes students and parents satisfied.</p>
+    </div>
+    <article class="panel-card research-card">
+      <div class="research-meta">
+        <span class="pill">Peer-reviewed</span><span class="pill amber">Journal of Education and Learning</span>
+      </div>
+      <h3 class="research-title">Tutor Quality Is Not Tutor-Student Fit: Evidence from Online Secondary-School Tutoring</h3>
+      <p class="research-cite">Karan Gupta (Karan Gupta Consulting) and Arhaan Anand. <em>Journal of Education and Learning</em>, Vol. 16, No. 2, pp. 36 to 51. Canadian Center of Science and Education. Published online 15 October 2026. DOI: 10.5539/jel.v16n2p36</p>
+      <div class="research-actions">
+        <a class="btn btn-primary" href="https://www.researchgate.net/publication/415907371_Tutor_Quality_Is_Not_Tutor-Student_Fit_Evidence_from_Online_Secondary-School_Tutoring/fulltext/6ad289f050841e46f30d0a3e/Tutor-Quality-Is-Not-Tutor-Student-Fit-Evidence-from-Online-Secondary-School-Tutoring.pdf?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InB1YmxpY2F0aW9uIiwicGFnZSI6InB1YmxpY2F0aW9uIn19" target="_blank" rel="noopener">Download PDF <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M8 2v9M4 7l4 4 4-4M3 14h10" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <a class="btn btn-ghost" href="https://doi.org/10.5539/jel.v16n2p36" target="_blank" rel="noopener">View on the journal site ↗</a>
+      </div>
+    </article>
+
+    <h3 class="research-sub">The study at a glance</h3>
+    <ul class="research-facts">
+      <li><strong>220</strong><span>IGCSE tutoring relationships</span></li>
+      <li><strong>24</strong><span>tutors, each teaching 4 to 17 students</span></li>
+      <li><strong>178 + 163</strong><span>student and parent questionnaires</span></li>
+      <li><strong>14 to 17</strong><span>student ages, Years 10 and 11</span></li>
+    </ul>
+
+    <h3 class="research-sub">What we found</h3>
+    <div class="research-grid">
+      <div class="finding"><span class="finding-n">01</span><h4>A good tutor and the right tutor are different things</h4><p>How good students judged their tutor and how well that tutor suited them were almost unrelated (correlation of .12). A tutor can know the subject well and still move too fast for one particular student.</p></div>
+      <div class="finding"><span class="finding-n">02</span><h4>Quality belongs to the tutor; fit belongs to the pairing</h4><p>About a third of the variation in perceived quality sat between tutors, so students of the same tutor broadly agreed on it. Perceived fit showed essentially none: the same tutor suited some students and not others.</p></div>
+      <div class="finding"><span class="finding-n">03</span><h4>Fit carried the larger association with satisfaction</h4><p>Both mattered independently for student satisfaction, but fit had the stronger association (standardised coefficient .51, against .18 for quality). Students who stayed described patience and pace, not just expertise.</p></div>
+      <div class="finding"><span class="finding-n">04</span><h4>Parents judge value, not price</h4><p>For parents, perceived value and how responsive the platform was were each linked to satisfaction. Once value was taken into account, the session fee added nothing.</p></div>
+    </div>
+
+    <div class="research-implication">
+      <p class="eyebrow">Why this matters for peer tutoring</p>
+      <p>Screening tutors for quality cannot replace matching them carefully. The paper's practical implication is a short check on the pairing after the first or second lesson, asking about pace and suitability rather than the tutor's competence, so a mismatch is caught early. The tutor pool in the study mixed peer tutors with adult and professional tutors; comparing the two is the next question for this research.</p>
+      <p class="research-note">The findings are associational and come from a single IGCSE platform, so they show patterns rather than prove cause and effect. Full methods and limitations are in the paper.</p>
+    </div>
+  </div></section>
   <section class="section"><div class="wrap" style="max-width:760px">
     <div class="block"><h2>Why we exist</h2><p>Exam preparation is harder than it needs to be, not because the content is impossible but because the information is scattered. Timetables, syllabus changes, past papers, study advice: each lives somewhere different, in a different format, and much of it is out of date.</p></div>
     <div class="block"><h2>What we do</h2><p>We bring essential exam information, study guidance and academic resources into one easy-to-use space, organised by level and exam board. From exam timetables and syllabus guidance to practical study tips and updates, the goal is to make preparation simple, organised and less stressful.</p></div>
